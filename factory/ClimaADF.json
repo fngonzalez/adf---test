@@ -1,0 +1,9 @@
+{
+	"name": "ClimaADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d3e1fc59-48d8-4c27-b83c-df0081a2de07",
+		"tenantId": "4c818f79-ab84-4552-9b7c-2fe715b0d0d5"
+	}
+}

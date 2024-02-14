@@ -1,0 +1,10 @@
+{
+	"name": "ClimaPE",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/dbbae611-797c-4e8d-912c-305e4de41afc/resourceGroups/ClimaRG/providers/Microsoft.Storage/storageAccounts/climaadls",
+		"groupId": "dfs",
+		"fqdns": [
+			"climaadls.dfs.core.windows.net"
+		]
+	}
+}

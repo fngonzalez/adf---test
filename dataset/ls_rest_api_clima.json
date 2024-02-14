@@ -1,0 +1,16 @@
+{
+	"name": "ls_rest_api_clima",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RestService1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "data/2.5/forecast?lat=-45.793442&lon=-68.06445&appid=1b281eb6fd53717e913beac0c89a7cd1&units=metric "
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
