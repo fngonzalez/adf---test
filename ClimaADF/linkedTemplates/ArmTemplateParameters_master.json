@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ClimaADF"
+		},
+		"ADB_Clima_accessToken": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://climaadls.dfs.core.windows.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "http://api.openweathermap.org"
+		},
+		"ClimaPE_properties_privateLinkResourceId": {
+			"value": "/subscriptions/dbbae611-797c-4e8d-912c-305e4de41afc/resourceGroups/ClimaRG/providers/Microsoft.Storage/storageAccounts/climaadls"
+		},
+		"ClimaPE_properties_groupId": {
+			"value": "dfs"
+		},
+		"ClimaPE_properties_fqdns": {
+			"value": [
+				"climaadls.dfs.core.windows.net"
+			]
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

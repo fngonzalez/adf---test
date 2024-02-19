@@ -1,0 +1,93 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ClimaADF"
+		},
+		"ADB_Clima_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ADB_Clima'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://climaadls.dfs.core.windows.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "http://api.openweathermap.org"
+		},
+		"ClimaPE_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/dbbae611-797c-4e8d-912c-305e4de41afc/resourceGroups/ClimaRG/providers/Microsoft.Storage/storageAccounts/climaadls"
+		},
+		"ClimaPE_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
+		},
+		"ClimaPE_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"climaadls.dfs.core.windows.net"
+			]
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ClimaADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADB_Clima_accessToken": {
+						"value": "[parameters('ADB_Clima_accessToken')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"ClimaPE_properties_privateLinkResourceId": {
+						"value": "[parameters('ClimaPE_properties_privateLinkResourceId')]"
+					},
+					"ClimaPE_properties_groupId": {
+						"value": "[parameters('ClimaPE_properties_groupId')]"
+					},
+					"ClimaPE_properties_fqdns": {
+						"value": "[parameters('ClimaPE_properties_fqdns')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
